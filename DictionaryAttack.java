@@ -1,5 +1,6 @@
 package FactoryMethod.PasswordCracker;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,12 +19,14 @@ public class DictionaryAttack implements Cracker  {
                 String password = myReader.nextLine();
                 count++;
                 if(mdp.equals(password)) {
-                    System.out.println("mot de passe trouve : " + mdp + "\nnombre de tentative " + count );
+
+                    System.out.println();
+                    JOptionPane.showMessageDialog(null, "mot de passe trouve : " + mdp + "\nnombre de tentative " + count  );
                     foundpwd = true;
                 }
             }
             if(!foundpwd) {
-                System.out.println("Password not found");
+                JOptionPane.showMessageDialog(null, "Password not found" );
             }
             myReader.close();
         } catch (FileNotFoundException e) {

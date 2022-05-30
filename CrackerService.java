@@ -1,5 +1,6 @@
 package FactoryMethod.PasswordCracker;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class CrackerService {
@@ -7,17 +8,13 @@ public class CrackerService {
         CrackerFactory crackerFactory = new CrackerFactory();
         Scanner sc = new Scanner(System.in);
         String mdp;
-        System.out.print("veuillez entrer votre mot de passe : ");
-        mdp = sc.nextLine();
-        System.out.println(mdp);
-        System.out.println("Choisir type d'attaque : ");
-        System.out.println("1) Brute Force");
-        System.out.println("2) Dictionnaire");
-        int type = sc.nextInt();
+        mdp = JOptionPane.showInputDialog("Veuillez entrer votre mot de passe : ");
+        int type =Integer.parseInt(JOptionPane.showInputDialog("Choisir type d'attaque : \n1) Brute Force\n2) Dictionnaire"));
         Cracker cracker = crackerFactory.createAlgorithm(type);
         double start = System.currentTimeMillis();
         cracker.hack(mdp);
         double end = System.currentTimeMillis();
-        System.out.println("temp :" + (end - start) / 1000 + "s");
+        System.out.println();
+        JOptionPane.showMessageDialog(null, "temp :" + (end - start) / 1000 + "s");
     }
 }

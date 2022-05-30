@@ -1,5 +1,6 @@
 package FactoryMethod.PasswordCracker;
 
+import javax.swing.*;
 import java.util.Arrays;
 
 public class BruteForce implements Cracker{
@@ -56,7 +57,8 @@ public class BruteForce implements Cracker{
 
                             System.out.println(tentative);
                             if (tentative.equals(mdp)) {
-                                System.out.println("mot de passe trouvé : " + tentative);
+                                System.out.println();
+                                JOptionPane.showMessageDialog(null, "mot de passe trouvé : " + tentative);
                                 break outerloop;
                             } else {
                                 tentative = "";
