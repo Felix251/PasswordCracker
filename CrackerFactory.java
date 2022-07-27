@@ -1,4 +1,8 @@
-package FactoryMethod.PasswordCracker;
+
+
+import FactoryMethod.PasswordCracker.BruteForce;
+import FactoryMethod.PasswordCracker.Cracker;
+import FactoryMethod.PasswordCracker.DictionaryAttack;
 
 import java.util.Dictionary;
 
